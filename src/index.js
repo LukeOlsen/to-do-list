@@ -1,12 +1,51 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ToDoCard from './ToDoCard';
+import ToDoArea from './ToDoArea';
+
+
+
+function CreateNewToDoCard(){
+
+}
+
+
+
+class App extends React.Component {
+    constructor(props){
+        super(props)
+
+        this.state = {
+            todos: [
+                {
+                   title: 'Create ToDo!',
+                   description: '',
+                   duedate: '',
+                   complete: false 
+                }
+            ],
+            tempTitle: '',
+            tempDescription: '',
+            tempDate: ''
+        }
+    }
+
+    callState(){
+        console.log(this.state);
+    }
+
+ 
+
+    
+
+
+    render(){
+        return(
+            <div>
+                <ToDoArea title={this.state.todos} />
+            </div>
+        );
+    }
+}
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
