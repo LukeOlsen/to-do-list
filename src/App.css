@@ -1,0 +1,13 @@
+.CreateToDo {
+    width: 400px;
+    height: 300px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.ToDoCard {
+    height: 100px;
+    width: 150px;
+    border: 2px solid red;
+}

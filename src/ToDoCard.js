@@ -6,7 +6,7 @@ const ToDoCard = (props) => {
 
 
     return (
-        <div>
+        <div className="ToDoCard">
             <div className="ToDoTitle">{props.title}</div>
             <div className="ToDoDescription"></div>
             <div className="ToDoDate"></div>
