@@ -8,9 +8,9 @@ const ToDoCard = (props) => {
     return (
         <div className="ToDoCard">
             <div className="ToDoTitle">{props.title}</div>
-            <div className="ToDoDescription"></div>
-            <div className="ToDoDate"></div>
-            <div className="ToDoComplete"></div>
+            <div className="ToDoDescription">{props.description}</div>
+            <div className="ToDoDate">{props.date}</div>
+            <div className="ToDoComplete">{props.complete}</div>
         </div>
     );
 }

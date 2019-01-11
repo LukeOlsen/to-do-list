@@ -2,12 +2,15 @@ import React from 'react';
 import ToDoCard from './ToDoCard';
 
 const ToDoArea = (props) => {
-    const keyTrack = 0;
+    let keyTrack = 0;
     const goTime = props.title.map(e =>
             <ToDoCard 
-            key={keyTrack}
+            key={e.title}
             title={e.title}
-            />
+            description={e.description}
+            date={e.date}
+            complete={e.complete}
+            />,
         );
 
 

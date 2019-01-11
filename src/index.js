@@ -101,7 +101,7 @@ class App extends React.Component {
             <div>
                 <button onClick={this.CreateNewToDoCard}>create new to do!</button>
                 {this.renderCreateToDo()}
-                <div class="CreateButton" onClick={this.tempToDoVisible}>
+                <div className="CreateButton" onClick={this.tempToDoVisible}>
                     create new to do?
                 </div>
                 <ToDoArea title={this.state.todos} />
