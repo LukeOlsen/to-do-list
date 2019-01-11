@@ -23,7 +23,9 @@ class App extends React.Component {
             ],
             tempTitle: '',
             tempDescription: '',
-            tempDate: ''
+            tempDate: '',
+            tempToDoVisible: false,
+            createButtonVisibile: true
         }
 
 
@@ -31,34 +33,34 @@ class App extends React.Component {
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
+        this.renderCreateToDo = this.renderCreateToDo.bind(this);
+        this.tempToDoVisible = this.tempToDoVisible.bind(this);
     }
 
-    callState(){
+    callState() {
         console.log(this.state);
     }
 
  
-    CreateNewToDoCard(){    
+    CreateNewToDoCard() {    
 
     }
 
-    handleTitleChange(tempTitle){
+    handleTitleChange(tempTitle) {
         this.setState({tempTitle});
     }
 
-    handleDescriptionChange(tempDescription){
+    handleDescriptionChange(tempDescription) {
         this.setState({tempDescription});
     }
 
-    handleDateChange(tempDate){
+    handleDateChange(tempDate) {
         this.setState({tempDate})
     }
     
-
-
-    render(){
-        return(
-            <div>
+    renderCreateToDo() {
+        if (this.state.tempToDoVisible === true) {
+            return (
                 <CreateToDo 
                 tempTitle={this.state.tempTitle}
                 tempDescription={this.state.tempDescription}
@@ -68,6 +70,27 @@ class App extends React.Component {
                 handleDescriptionChange={this.handleDescriptionChange}
                 handleDateChange={this.handleDateChange}
                 />
+            )
+        } 
+    }
+
+    tempToDoVisible() {
+        alert("work?");
+        if (this.state.tempToDoVisible === false) {
+            this.setState({tempToDoVisible: true});
+        } 
+    }
+
+
+
+
+    render(){
+        return(
+            <div>
+                {this.renderCreateToDo()}
+                <div class="CreateButton" onClick={this.tempToDoVisible}>
+                    create new to do?
+                </div>
                 <ToDoArea title={this.state.todos} />
             </div>
         );
