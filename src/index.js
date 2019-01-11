@@ -42,8 +42,21 @@ class App extends React.Component {
     }
 
  
-    CreateNewToDoCard() {    
+    CreateNewToDoCard() { 
+        let tempObj = {
+            title: this.state.tempTitle,
+            description: this.state.tempDescription,
+            tempDate: this.state.tempDate,
+            complete: false
+        }   
+        this.setState(prevState => ({
+            todos: [...prevState.todos, tempObj],
+            tempTitle: '',
+            tempDate: '',
+            tempDescription: ''
+        }))
 
+        
     }
 
     handleTitleChange(tempTitle) {
@@ -75,7 +88,6 @@ class App extends React.Component {
     }
 
     tempToDoVisible() {
-        alert("work?");
         if (this.state.tempToDoVisible === false) {
             this.setState({tempToDoVisible: true});
         } 
@@ -87,6 +99,7 @@ class App extends React.Component {
     render(){
         return(
             <div>
+                <button onClick={this.CreateNewToDoCard}>create new to do!</button>
                 {this.renderCreateToDo()}
                 <div class="CreateButton" onClick={this.tempToDoVisible}>
                     create new to do?
