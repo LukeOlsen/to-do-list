@@ -22,8 +22,7 @@ const CreateToDo = (props)  => {
                 value={props.tempDate}
                 onChange={event => props.handleDateChange(event.target.value)}
             />
-
-
+            <button onClick={props.addToDo}>Add This To List!</button>
         </div>
     ) 
 }

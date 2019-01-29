@@ -1,6 +1,6 @@
 .CreateToDo {
-    width: 400px;
-    height: 300px;
+    width: 450px;
+    height: 100px;
     border: 2px solid black;
     display: flex;
     flex-direction: column;
@@ -9,14 +9,15 @@
 
 .ToDoCard {
     height: 100px;
-    width: 150px;
+    width: 450px;
     border: 2px solid red;
     margin: 0 auto;
 }
 
 .CreateButton {
-    height: 50px;
-    width: 100px;
+    height: 100px;
+    width: 200px;
     border: 2px solid black;
-    margin: 0 auto;
+    float: right;
+    z-index: -1;
 }

@@ -10,6 +10,7 @@ const ToDoArea = (props) => {
             description={e.description}
             date={e.date}
             complete={e.complete}
+            edit={e.edit}
             />,
         );
 

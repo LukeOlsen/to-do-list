@@ -18,7 +18,8 @@ class App extends React.Component {
                    title: 'Create ToDo!',
                    description: '',
                    duedate: '',
-                   complete: false 
+                   complete: false,
+                   edit: false 
                 }
             ],
             tempTitle: '',
@@ -55,8 +56,7 @@ class App extends React.Component {
             tempDate: '',
             tempDescription: ''
         }))
-
-        
+        this.tempToDoVisible()
     }
 
     handleTitleChange(tempTitle) {
@@ -74,15 +74,18 @@ class App extends React.Component {
     renderCreateToDo() {
         if (this.state.tempToDoVisible === true) {
             return (
-                <CreateToDo 
-                tempTitle={this.state.tempTitle}
-                tempDescription={this.state.tempDescription}
-                tempDate={this.state.tempDate}
-                CreateNewToDoCard={this.CreateNewToDoCard}
-                handleTitleChange={this.handleTitleChange}
-                handleDescriptionChange={this.handleDescriptionChange}
-                handleDateChange={this.handleDateChange}
-                />
+                <div>
+                    <CreateToDo 
+                    tempTitle={this.state.tempTitle}
+                    tempDescription={this.state.tempDescription}
+                    tempDate={this.state.tempDate}
+                    CreateNewToDoCard={this.CreateNewToDoCard}
+                    handleTitleChange={this.handleTitleChange}
+                    handleDescriptionChange={this.handleDescriptionChange}
+                    handleDateChange={this.handleDateChange}
+                    addToDo={this.CreateNewToDoCard}
+                    />
+                </div>
             )
         } 
     }
@@ -90,18 +93,15 @@ class App extends React.Component {
     tempToDoVisible() {
         if (this.state.tempToDoVisible === false) {
             this.setState({tempToDoVisible: true});
-        } 
+        } else if (this.state.tempToDoVisible === true) {
+            this.setState({tempToDoVisible: false})
+        }
     }
-
-
-
 
     render(){
         return(
             <div>
-                <button onClick={this.CreateNewToDoCard}>create new to do!</button>
-                {this.renderCreateToDo()}
-                <div className="CreateButton" onClick={this.tempToDoVisible}>
+                <div className="CreateButton" onClick={this.CreateNewToDoCard}>
                     create new to do?
                 </div>
                 <ToDoArea title={this.state.todos} />
