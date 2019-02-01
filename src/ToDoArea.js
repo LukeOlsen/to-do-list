@@ -31,6 +31,9 @@ const ToDoArea = (props) => {
                     handleTitleChange={props.handleTitleChange}
                     handleDescriptionChange={props.handleDescriptionChange}
                     handleDateChange={props.handleDateChange}
+                    tempTitle={props.tempTitle}
+                    tempDate={props.tempDate}
+                    tempDescription={props.tempDescription}
                     />
                 </div>
             )

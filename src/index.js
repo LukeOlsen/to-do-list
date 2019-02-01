@@ -64,7 +64,6 @@ class App extends React.Component {
     }
 
     changeEdit(r) {
-        alert("WORKING!");
         let newState = Object.assign({}, this.state);
         console.log(newState);
         for (var i = 0; i < newState.todos.length; i++) {
@@ -133,6 +132,9 @@ class App extends React.Component {
                 handleTitleChange={this.handleTitleChange}
                 handleDescriptionChange={this.handleDescriptionChange}
                 handleDateChange={this.handleDateChange}
+                tempTitle={this.state.tempTitle}
+                tempDate={this.state.tempDate}
+                tempDescription={this.state.tempDescription}
                 />
             </div>
         );
