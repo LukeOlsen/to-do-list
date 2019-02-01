@@ -7,6 +7,7 @@ const CreateToDo = (props)  => {
         <div className="CreateToDo">
             <input 
                 className="tempTitle"
+                placeholder={props.tempTitle}
                 value={props.tempTitle}
                 onChange={event => props.handleTitleChange(event.target.value)}
             />

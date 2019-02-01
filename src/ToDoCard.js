@@ -3,6 +3,7 @@ import React from 'react';
 const ToDoCard = (props) => {
 
     console.log(props)
+    console.log(props.title)
 
 
     return (
@@ -11,6 +12,7 @@ const ToDoCard = (props) => {
             <div className="ToDoDescription">{props.description}</div>
             <div className="ToDoDate">{props.date}</div>
             <div className="ToDoComplete">{props.complete}</div>
+            <button onClick={() => props.changeEdit(props.title)}>Edit</button>
         </div>
     );
 }
