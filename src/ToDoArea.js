@@ -15,7 +15,7 @@ const ToDoArea = (props) => {
                         test={props.identity}
                         title={e.title}
                         description={e.description}
-                        date={e.date}
+                        date={e.duedate}
                         complete={e.complete}
                         edit={e.edit}
                         changeEdit={props.handleEditChange}
@@ -29,7 +29,7 @@ const ToDoArea = (props) => {
                         <CreateToDo
                         title={e.title}
                         description={e.description}
-                        date={e.date}
+                        date={e.duedate}
                         identity={e.identity}
                         handleTitleChange={props.handleTitleChange}
                         handleDescriptionChange={props.handleDescriptionChange}
