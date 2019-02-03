@@ -1,11 +1,11 @@
 import React from 'react';
 
-const CreateToDo = (props)  => {
-    
+const CreateToDo = (props)  => {   
 
     return(
         <div className="CreateToDo">
-            <input 
+            <input
+                type="text" 
                 className="tempTitle"
                 placeholder={props.title}
                 value={props.tempTitle}
@@ -13,12 +13,14 @@ const CreateToDo = (props)  => {
             />
 
             <input 
+                type="text"
                 className="tempDescription"
                 value={props.tempDescription}
                 onChange={event => props.handleDescriptionChange(event.target.value)}
             />
 
             <input 
+                type="date"
                 className="tempDate"
                 value={props.tempDate}
                 onChange={event => props.handleDateChange(event.target.value)}

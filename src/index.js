@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ToDoArea from './ToDoArea';
-import CreateToDo from './CreateToDo';
 import './App.css';
 
 
@@ -81,6 +80,9 @@ class App extends React.Component {
         for (var i = 0; i < newState.todos.length; i++) {
             if (newState.todos[i].identity === r) {
                 newState.todos[i].edit = true;
+                newState.tempTitle = newState.todos[i].title;
+                newState.tempDescription = newState.todos[i].description;
+                newState.tempDate = newState.todos[i].date;
             }
         }
         this.setState(newState);
@@ -119,9 +121,9 @@ class App extends React.Component {
 
     render(){
         return(
-            <div>
+            <div className="MainBody">
                 <div className="CreateButton" onClick={this.CreateNewToDoCard}>
-                    create new to do?
+                    <h4 className="Header">CREATE TO DO</h4>
                 </div>
                 <ToDoArea 
                 todos={this.state.todos} 
@@ -135,7 +137,6 @@ class App extends React.Component {
                 addToDo={this.addToDo}
                 completeItem={this.completeItem}
                 />
-                <button onClick={() => console.log(this.state)}>Console log the state</button>
             </div>
         );
     }

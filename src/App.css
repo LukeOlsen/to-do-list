@@ -1,3 +1,8 @@
+body {
+    background-color: #bfe8ff;
+    font-family: 'Roboto', sans-serif;
+}
+
 .CreateToDo {
     width: 450px;
     height: 100px;
@@ -5,19 +10,84 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    margin-top: 10px;
+    border-radius: 6px;
+    background-color: #efefef;
 }
 
 .ToDoCard {
     height: 100px;
     width: 450px;
-    border: 2px solid red;
+    border: 2px solid black;
+    background-color: #efefef;
     margin: 0 auto;
+    border-radius: 6px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-rows: 75% 25%;
 }
 
 .CreateButton {
-    height: 100px;
-    width: 200px;
+    background-color: #323f4e;
+    margin-top: 20px;
+    color: white;
+    height: 60px;
+    width: 450px;
     border: 2px solid black;
-    float: right;
-    z-index: -1;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.CreateButton:hover {
+    cursor: pointer;
+    background-color: #3f4852;
+}
+
+.EditButton {
+    bottom: 0;
+    width: 50%;
+}
+
+.CompleteButton {
+    bottom: 0;
+    width: 50%;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.Header {
+    text-align: center;
+}
+
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #efefef;
+}
+
+input[type=text]:focus {
+    border-color:#333;
+}
+
+button {
+    padding:5px 15px; 
+    background:rgb(118, 187, 252); 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+}
+
+button:hover {
+    padding:5px 15px; 
+    background:rgb(81, 167, 248); 
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
 }

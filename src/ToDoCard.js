@@ -8,12 +8,15 @@ const ToDoCard = (props) => {
 
     return (
         <div className="ToDoCard">
-            <div className="ToDoTitle">{props.title}</div>
-            <div className="ToDoDescription">{props.description}</div>
-            <div className="ToDoDate">{props.date}</div>
-            <div className="ToDoComplete">{props.complete}</div>
-            <button onClick={() => props.changeEdit(props.identity)}>Edit</button>
-            <button onClick={() => props.completeItem(props.identity)}>Complete</button>
+            <div className="TextArea">
+                <div className="ToDoTitle"><p>{props.title}</p></div>
+                <div className="ToDoDescription"><p>{props.description}</p></div>
+                <div className="ToDoDate"><p>{props.date}</p></div>
+            </div>
+            <div className="ButtonArea">
+                <button className="EditButton" onClick={() => props.changeEdit(props.identity)}>EDIT</button>
+                <button className="CompleteButton" onClick={() => props.completeItem(props.identity)}>COMPLETE</button>
+            </div>
         </div>
     );
 }
