@@ -34,10 +34,10 @@ class App extends React.Component {
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
-        // this.renderCreateToDo = this.renderCreateToDo.bind(this);
         this.tempToDoVisible = this.tempToDoVisible.bind(this);
         this.changeEdit = this.changeEdit.bind(this);
         this.addToDo = this.addToDo.bind(this);
+        this.completeItem = this.completeItem.bind(this);
     }
 
  
@@ -83,12 +83,17 @@ class App extends React.Component {
                 newState.todos[i].edit = true;
             }
         }
-        console.log(newState);
-        this.setState(newState)
+        this.setState(newState);
     }
 
-    completeItem() {
-        this.setState()
+    completeItem(r) {
+      let newState = Object.assign({}, this.state);
+      for (var i = 0; i < newState.todos.length; i++) {
+          if (newState.todos[i].identity === r) {
+            newState.todos[i].complete = true;
+          }
+      }
+      this.setState(newState);  
     }
 
 
@@ -103,26 +108,6 @@ class App extends React.Component {
     handleDateChange(tempDate) {
         this.setState({tempDate})
     }
-    
-    // renderCreateToDo() {
-    //     if (this.state.tempToDoVisible === true) {
-    //         return (
-    //             <div>
-    //                 <CreateToDo 
-    //                 tempTitle={this.state.tempTitle}
-    //                 tempDescription={this.state.tempDescription}
-    //                 tempDate={this.state.tempDate}
-    //                 CreateNewToDoCard={this.CreateNewToDoCard}
-    //                 handleTitleChange={this.handleTitleChange}
-    //                 handleDescriptionChange={this.handleDescriptionChange}
-    //                 handleDateChange={this.handleDateChange}
-    //                 changeEdit={this.changeEdit}
-    //                 addToDo={this.CreateNewToDoCard}
-    //                 />
-    //             </div>
-    //         )
-    //     } 
-    // }
 
     tempToDoVisible() {
         if (this.state.tempToDoVisible === false) {
@@ -148,6 +133,7 @@ class App extends React.Component {
                 tempDate={this.state.tempDate}
                 tempDescription={this.state.tempDescription}
                 addToDo={this.addToDo}
+                completeItem={this.completeItem}
                 />
                 <button onClick={() => console.log(this.state)}>Console log the state</button>
             </div>
