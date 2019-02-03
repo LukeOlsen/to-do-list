@@ -12,7 +12,7 @@ const ToDoCard = (props) => {
             <div className="ToDoDescription">{props.description}</div>
             <div className="ToDoDate">{props.date}</div>
             <div className="ToDoComplete">{props.complete}</div>
-            <button onClick={() => props.changeEdit(props.title)}>Edit</button>
+            <button onClick={() => props.changeEdit(props.identity)}>Edit</button>
         </div>
     );
 }

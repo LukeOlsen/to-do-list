@@ -3,14 +3,15 @@ import ToDoCard from './ToDoCard';
 import CreateToDo from './CreateToDo';
 
 const ToDoArea = (props) => {
+    console.log(props)
    
     const goTime = props.todos.map(function(e, index) {
         if (e.edit === false) {
             return(
                 <div key={index}>
                     <ToDoCard 
-                    key={e.key}
-                    test={props.key}
+                    identity={e.identity}
+                    test={props.identity}
                     title={e.title}
                     description={e.description}
                     date={e.date}
@@ -27,13 +28,14 @@ const ToDoArea = (props) => {
                     title={e.title}
                     description={e.description}
                     date={e.date}
-                    key={e.key}
+                    identity={e.identity}
                     handleTitleChange={props.handleTitleChange}
                     handleDescriptionChange={props.handleDescriptionChange}
                     handleDateChange={props.handleDateChange}
                     tempTitle={props.tempTitle}
                     tempDate={props.tempDate}
                     tempDescription={props.tempDescription}
+                    addToDo={props.addToDo}
                     />
                 </div>
             )

@@ -14,14 +14,13 @@ class App extends React.Component {
         this.state = {
             todos: [
                 {
-                   key: Date.now(),
+                   identity: Date.now(),
                    title: 'Create ToDo!',
                    description: '',
                    duedate: '',
                    complete: false,
                    edit: false 
                 }
-
             ],
             tempTitle: '',
             tempDescription: '',
@@ -38,16 +37,13 @@ class App extends React.Component {
         // this.renderCreateToDo = this.renderCreateToDo.bind(this);
         this.tempToDoVisible = this.tempToDoVisible.bind(this);
         this.changeEdit = this.changeEdit.bind(this);
-    }
-
-    callState() {
-        console.log(this.state);
+        this.addToDo = this.addToDo.bind(this);
     }
 
  
     CreateNewToDoCard() { 
         let tempObj = {
-            key: Date.now(),
+            identity: Date.now(),
             title: '',
             description: '',
             duedate: '',
@@ -59,15 +55,31 @@ class App extends React.Component {
         }))
     }
 
-    addToDo() {
-
+    addToDo(r) {
+        let newState = Object.assign({}, this.state);
+        for (var i = 0; i < this.state.todos.length; i++){
+            if (this.state.todos[i].identity === r){
+                let tempObj = {
+                    identity: this.state.todos[i].identity,
+                    title: this.state.tempTitle,
+                    description: this.state.tempDescription,
+                    duedate: this.state.tempDate,
+                    complete: false,
+                    edit: false
+                }
+                newState.todos[i] = tempObj;
+                newState.tempTitle = '';
+                newState.tempDescription = '';
+                newState.tempDate = '';
+            }
+        }
+        this.setState(newState)
     }
 
     changeEdit(r) {
         let newState = Object.assign({}, this.state);
-        console.log(newState);
         for (var i = 0; i < newState.todos.length; i++) {
-            if (newState.todos[i].title === r) {
+            if (newState.todos[i].identity === r) {
                 newState.todos[i].edit = true;
             }
         }
@@ -135,7 +147,9 @@ class App extends React.Component {
                 tempTitle={this.state.tempTitle}
                 tempDate={this.state.tempDate}
                 tempDescription={this.state.tempDescription}
+                addToDo={this.addToDo}
                 />
+                <button onClick={() => console.log(this.state)}>Console log the state</button>
             </div>
         );
     }
