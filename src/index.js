@@ -11,16 +11,7 @@ class App extends React.Component {
         super(props)       
 
         this.state = {
-            todos: [
-                {
-                   identity: Date.now(),
-                   title: 'Create ToDo!',
-                   description: '',
-                   duedate: '',
-                   complete: false,
-                   edit: false 
-                }
-            ],
+            todos: [],
             tempTitle: '',
             tempDescription: '',
             tempDate: '',
